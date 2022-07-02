@@ -1,8 +1,13 @@
+import java.io.IOException;
+
 public class Availity {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        System.out.println("LISP Parenthesis Validator");
         testLISPValidator();
 
+        System.out.println("\nCSV Parser:");
+        testCSVEnrollment();
     }
 
     public static void testLISPValidator() {
@@ -44,5 +49,11 @@ public class Availity {
             LISPCode lisp = new LISPCode(invalid);
             System.out.println(lisp);
         }
+    }
+
+    public static void testCSVEnrollment() throws IOException {
+        String fileName = "MOCK_DATA.csv";
+        CSVEnrollment enrollment = new CSVEnrollment(fileName);
+        enrollment.parse();
     }
 }
