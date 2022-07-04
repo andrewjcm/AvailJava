@@ -50,7 +50,7 @@ public class CSVEnrollment {
 
     private void sortByInsurance(User user) {
         if (insuranceExistsInMap(user) && userExistsInInsuranceMap(user)) {
-            if (user.compareTo(getExistingUserInInsuranceMap(user)) > 0) {
+            if (user.isLatest(getExistingUserInInsuranceMap(user))) {
                 addUserToInsuranceMap(user);
             }
         }

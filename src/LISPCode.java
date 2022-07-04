@@ -9,27 +9,27 @@ public class LISPCode {
 
     public boolean isValid() {
         int openCount = 0;
-        for (int i = 0; i < this.code.length(); i++) {
-            char c = this.code.charAt(i);
+        for (int i = 0; i < code.length(); i++) {
+            char c = code.charAt(i);
             if (openCount == 0 && c != '(') {
-                this.openP--;
+                openP--;
                 return false;
             }
             else if (c == '(') {
                 openCount++;
-                this.openP++;
+                openP++;
             }
             else if (c == ')') {
                 openCount--;
-                this.closeP++;
+                closeP++;
             }
         }
         return openCount == 0;
     }
 
     public String toString() {
-        return "LISPCode(isValid=" + this.isValid() +
-                ", openParenthesis=" + this.openP +
-                ", closeParenthesis=" + this.closeP + ")";
+        return "LISPCode(isValid=" + isValid() +
+                ", openParenthesis=" + openP +
+                ", closeParenthesis=" + closeP + ")";
     }
 }

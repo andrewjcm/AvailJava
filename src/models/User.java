@@ -64,36 +64,40 @@ public class User {
     }
 
     public boolean equals(User otherUser) {
-        return this.userId.equals(otherUser.userId)
-                && this.insuranceCompany.equals(otherUser.insuranceCompany);
+        return userId.equals(otherUser.userId)
+                && insuranceCompany.equals(otherUser.insuranceCompany);
+    }
+
+    public boolean isLatest(User otherUser) {
+        return compareTo(otherUser) > 0;
     }
 
     public int compareTo(User otherUser) {
-        if (this.equals(otherUser)){
-            return this.compareVersion(otherUser);
+        if (equals(otherUser)){
+            return compareVersion(otherUser);
         }
         else {
-            return this.compareName(otherUser);
+            return compareName(otherUser);
         }
 
     }
 
     private int compareVersion(User otherUser) {
-        return Integer.compare(this.version, otherUser.version);
+        return Integer.compare(version, otherUser.version);
     }
 
     private int compareName(User otherUser) {
-        if (this.firstName.equals(otherUser.firstName)) {
-            return this.lastName.compareTo(otherUser.lastName);
+        if (firstName.equals(otherUser.firstName)) {
+            return lastName.compareTo(otherUser.lastName);
         }
-        return this.firstName.compareTo(otherUser.firstName);
+        return firstName.compareTo(otherUser.firstName);
     }
 
     public String toString(){
-        return this.userId + "," +
-                this.firstName + " " +
-                this.lastName + "," +
-                this.version + "," +
-                this.insuranceCompany;
+        return userId + "," +
+                firstName + " " +
+                lastName + "," +
+                version + "," +
+                insuranceCompany;
     }
 }

@@ -3,10 +3,9 @@ import java.io.IOException;
 public class Availity {
 
     public static void main(String[] args) throws IOException {
-        System.out.println("LISP Parenthesis Validator");
         testLISPValidator();
 
-        System.out.println("\nCSV Parser:");
+        System.out.println("\nCSV Parser");
         testCSVEnrollment();
     }
 
@@ -43,8 +42,8 @@ public class Availity {
             LISPCode lisp = new LISPCode(valid);
             System.out.println(lisp);
         }
-        System.out.println("");
-        System.out.println("Starting invalid test code");
+
+        System.out.println("\nStarting invalid test code");
         for (String invalid : invalidTestCode) {
             LISPCode lisp = new LISPCode(invalid);
             System.out.println(lisp);
